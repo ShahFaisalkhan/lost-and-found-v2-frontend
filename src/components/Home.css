@@ -1,0 +1,5 @@
+.fixed-image {
+    width: 100%; /* Ensures the image scales with the card's width */
+    height: 200px; /* Fixed height for consistent layout */
+    object-fit: cover; /* Crops the image to fit without distortion */
+  }
