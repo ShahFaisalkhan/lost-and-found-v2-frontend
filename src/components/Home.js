@@ -135,7 +135,7 @@ const Home = () => {
             {item.imageUrl ? (
     <img
       // src={`http://localhost:5000${item.imageUrl}`}
-      src={`https://https://lost-and-found-v2-backend-production.up.railway.app${item.imageUrl}`}
+      src={`https://lost-and-found-v2-backend-production.up.railway.app${item.imageUrl}`}
       alt={item.title}
       className="card-img-top"
       style={{ height: '200px', objectFit: 'cover' }}
