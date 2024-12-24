@@ -23,7 +23,7 @@ const ContactUs = () => {
 
     try {
       // await axios.post('http://localhost:5000/api/contact', formData);
-      await axios.post('https://lost-and-found-v-2-backend.vercel.app/api/contact', formData);
+      await axios.post('https://lost-and-found-v2-backend-production.up.railway.app/api/contact', formData);
       // Show success message
       setStatusType('success');
       setStatus('Thank you! Your message has been sent successfully.');

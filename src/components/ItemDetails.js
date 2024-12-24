@@ -12,7 +12,7 @@ const ItemDetails = () => {
   useEffect(() => {
     axios
       // .get(`http://localhost:5000/api/items/${id}`)
-      .get(`https://lost-and-found-v-2-backend.vercel.app/api/items/${id}`)
+      .get(`https://lost-and-found-v2-backend-production.up.railway.app/api/items/${id}`)
       .then((response) => setItem(response.data))
       .catch((error) => console.error('Error fetching item details:', error));
   }, [id]);
@@ -25,7 +25,7 @@ const ItemDetails = () => {
         {item.imageUrl ? (
           <img
             // src={`http://localhost:5000${item.imageUrl}`}
-            src={`https://lost-and-found-v-2-backend.vercel.app${item.imageUrl}`}
+            src={`https://lost-and-found-v2-backend-production.up.railway.app${item.imageUrl}`}
             alt={item.title}
             className="item-image"
           />
