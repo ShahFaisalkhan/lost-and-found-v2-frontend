@@ -24,7 +24,7 @@ const EditItem = () => {
     const fetchItem = async () => {
       try {
         // const { data } = await axios.get(`http://localhost:5000/api/items/${id}`);
-        const { data } = await axios.get(`https://lost-and-found-v-2-backend.vercel.app/api/items/${id}`);
+        const { data } = await axios.get(`https://lost-and-found-v2-backend-production.up.railway.app/api/items/${id}`);
         setFormData({
           title: data.title || '',
           description: data.description || '',
@@ -66,7 +66,7 @@ const EditItem = () => {
 
       // Submit the form
       // await axios.put(`http://localhost:5000/api/items/${id}`, updateData, {
-        await axios.put(`https://lost-and-found-v-2-backend.vercel.app/api/items/${id}`, updateData, {
+        await axios.put(`https://lost-and-found-v2-backend-production.up.railway.app/api/items/${id}`, updateData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
@@ -90,7 +90,7 @@ const EditItem = () => {
             <p>Current Image:</p>
             <img
               // src={`http://localhost:5000${existingImageUrl}`}
-              src={`https://lost-and-found-v-2-backend.vercel.app${existingImageUrl}`}
+              src={`https://lost-and-found-v2-backend-production.up.railway.app${existingImageUrl}`}
               alt="Current Item"
               style={{ width: '300px', height: '200px', objectFit: 'cover' }}
             />

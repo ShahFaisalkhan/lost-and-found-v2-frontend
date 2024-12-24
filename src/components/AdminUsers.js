@@ -14,7 +14,7 @@ const AdminUsers = () => {
     try {
       const token = localStorage.getItem('token');
       // const { data } = await axios.get('http://localhost:5000/api/admin/users', {
-        const { data } = await axios.get('https://lost-and-found-v-2-backend.vercel.app/api/admin/users', {
+        const { data } = await axios.get('https://lost-and-found-v2-backend-production.up.railway.app/api/admin/users', {
         headers: { Authorization: `Bearer ${token}` },
         params: { page, limit: 36 }, // Pass pagination parameters
       });
@@ -55,7 +55,7 @@ const AdminUsers = () => {
     try {
       const token = localStorage.getItem('token');
       // await axios.delete(`http://localhost:5000/api/admin/users/${userId}`, {
-        await axios.delete(`https://lost-and-found-v-2-backend.vercel.app/api/admin/users/${userId}`, {
+        await axios.delete(`https://lost-and-found-v2-backend-production.up.railway.app/api/admin/users/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -71,7 +71,7 @@ const AdminUsers = () => {
     try {
       const token = localStorage.getItem('token');
       // await axios.patch(`http://localhost:5000/api/admin/users/${userId}/promote`, {}, {
-        await axios.patch(`https://lost-and-found-v-2-backend.vercel.app/api/admin/users/${userId}/promote`, {}, {
+        await axios.patch(`https://lost-and-found-v2-backend-production.up.railway.app/api/admin/users/${userId}/promote`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -87,7 +87,7 @@ const AdminUsers = () => {
     try {
       const token = localStorage.getItem('token');
       // await axios.patch(`http://localhost:5000/api/admin/users/${userId}/demote`, {}, {
-        await axios.patch(`https://lost-and-found-v-2-backend.vercel.app/api/admin/users/${userId}/demote`, {}, {
+        await axios.patch(`https://lost-and-found-v2-backend-production.up.railway.app/api/admin/users/${userId}/demote`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

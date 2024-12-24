@@ -17,7 +17,7 @@ const MyItems = () => {
 
         // Fetch user's items with pagination
         // const { data } = await axios.get('http://localhost:5000/api/items/my-items', {
-          const { data } = await axios.get('https://lost-and-found-v-2-backend.vercel.app/api/items/my-items', {
+          const { data } = await axios.get('https://lost-and-found-v2-backend-production.up.railway.app/api/items/my-items', {
           headers: { Authorization: `Bearer ${token}` },
            // Frontend: The params object in the axios.get request specifies the query parameters:
            //  This constructs a URL like: http://localhost:5000/api/items/my-items?page=1&limit=3
@@ -44,7 +44,7 @@ const MyItems = () => {
 
       // Send DELETE request to the backend
       // await axios.delete(`http://localhost:5000/api/items/${id}`, {
-        await axios.delete(`https://lost-and-found-v-2-backend.vercel.app/api/items/${id}`, {
+        await axios.delete(`https://lost-and-found-v2-backend-production.up.railway.app/api/items/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -66,7 +66,7 @@ const MyItems = () => {
             {item.imageUrl ? (
               <img
                 // src={`http://localhost:5000${item.imageUrl}`}
-                src={`https://lost-and-found-v-2-backend.vercel.app${item.imageUrl}`}
+                src={`https://lost-and-found-v2-backend-production.up.railway.app${item.imageUrl}`}
                 alt={item.title}
                 className="card-img-top"
                 style={{

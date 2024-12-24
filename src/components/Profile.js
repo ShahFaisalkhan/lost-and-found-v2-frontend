@@ -17,7 +17,7 @@ const Profile = () => {
       try {
         const token = localStorage.getItem('token');
         // const { data } = await axios.get('http://localhost:5000/auth/me', {
-          const { data } = await axios.get('https://lost-and-found-v-2-backend.vercel.app/auth/me', {
+          const { data } = await axios.get('https://lost-and-found-v2-backend-production.up.railway.app/auth/me', {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -38,7 +38,7 @@ const Profile = () => {
     try {
       const token = localStorage.getItem('token');
       // const { data } = await axios.put('http://localhost:5000/auth/profile', formData, {
-        const { data } = await axios.put('https://lost-and-found-v-2-backend.vercel.app/auth/profile', formData, {
+        const { data } = await axios.put('https://lost-and-found-v2-backend-production.up.railway.app/auth/profile', formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

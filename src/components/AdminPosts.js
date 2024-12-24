@@ -20,7 +20,7 @@ const AdminPosts = () => {
     try {
       const token = localStorage.getItem('token');
       // const { data } = await axios.get('http://localhost:5000/api/admin/posts', {
-        const { data } = await axios.get('https://lost-and-found-v-2-backend.vercel.app/api/admin/posts', {
+        const { data } = await axios.get('https://lost-and-found-v2-backend-production.up.railway.app/api/admin/posts', {
         headers: { Authorization: `Bearer ${token}` },
         params: { ...filters, page },
       });
@@ -45,7 +45,7 @@ const AdminPosts = () => {
     try {
       const token = localStorage.getItem('token');
       // await axios.delete(`http://localhost:5000/api/admin/posts/${postId}`, {
-        await axios.delete(`https://lost-and-found-v-2-backend.vercel.app/api/admin/posts/${postId}`, {
+        await axios.delete(`https://lost-and-found-v2-backend-production.up.railway.app/api/admin/posts/${postId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -154,7 +154,7 @@ const AdminPosts = () => {
             {post.imageUrl && (
               <img
                 // src={`http://localhost:5000${post.imageUrl}`}
-                src={`https://lost-and-found-v-2-backend.vercel.app${post.imageUrl}`}
+                src={`https://lost-and-found-v2-backend-production.up.railway.app${post.imageUrl}`}
                 alt={post.title}
                 className="card-img-top admin-post-image"
                 style={{ height: '200px', objectFit: 'cover' }}
