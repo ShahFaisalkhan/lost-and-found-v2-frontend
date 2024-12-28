@@ -35,8 +35,8 @@ const Home = () => {
       const queryString = query.join('&'); // Join the parts with "&" and converts it to string
       // console.log("query string in home.js is",queryString)
       // const { data } = await axios.get(`http://localhost:5000/api/items?${queryString}`);
-      const { data } = await axios.get(`https://lost-and-found-v2-backend-production.up.railway.app/api/items?${queryString}`);
-
+      // const { data } = await axios.get(`https://lost-and-found-v2-backend-production.up.railway.app/api/items?${queryString}`);
+        const { data } = await axios.get(`https://9g8hh9-5000.csb.app/api/items?${queryString}`);
         // const { data } = await axios.get(`http://localhost:5000/api/items?${query}`);
         setItems(data.items || []);
         setTotalPages(data.totalPages || 1);
@@ -135,7 +135,9 @@ const Home = () => {
             {item.imageUrl ? (
     <img
       // src={`http://localhost:5000${item.imageUrl}`}
-      src={`https://lost-and-found-v2-backend-production.up.railway.app${item.imageUrl}`}
+      // src={`https://lost-and-found-v2-backend-production.up.railway.app${item.imageUrl}`}
+      src={`https://9g8hh9-5000.csb.app${item.imageUrl}`}
+
       alt={item.title}
       className="card-img-top"
       style={{ height: '200px', objectFit: 'cover' }}
