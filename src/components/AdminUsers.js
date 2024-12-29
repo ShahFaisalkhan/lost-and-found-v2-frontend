@@ -1,6 +1,7 @@
 // export default AdminUsers;
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const AdminUsers = () => {
   const [users, setUsers] = useState([]);
@@ -14,7 +15,7 @@ const AdminUsers = () => {
     try {
       const token = localStorage.getItem('token');
       // const { data } = await axios.get('http://localhost:5000/api/admin/users', {
-        const { data } = await axios.get('https://lost-and-found-v2-backend-production.up.railway.app/api/admin/users', {
+        const { data } = await axios.get(`${API_BASE_URL}/api/admin/users`, {
         headers: { Authorization: `Bearer ${token}` },
         params: { page, limit: 36 }, // Pass pagination parameters
       });
@@ -55,7 +56,7 @@ const AdminUsers = () => {
     try {
       const token = localStorage.getItem('token');
       // await axios.delete(`http://localhost:5000/api/admin/users/${userId}`, {
-        await axios.delete(`https://lost-and-found-v2-backend-production.up.railway.app/api/admin/users/${userId}`, {
+        await axios.delete(`${API_BASE_URL}/api/admin/users/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -71,7 +72,7 @@ const AdminUsers = () => {
     try {
       const token = localStorage.getItem('token');
       // await axios.patch(`http://localhost:5000/api/admin/users/${userId}/promote`, {}, {
-        await axios.patch(`https://lost-and-found-v2-backend-production.up.railway.app/api/admin/users/${userId}/promote`, {}, {
+        await axios.patch(`${API_BASE_URL}/api/admin/users/${userId}/promote`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -87,7 +88,7 @@ const AdminUsers = () => {
     try {
       const token = localStorage.getItem('token');
       // await axios.patch(`http://localhost:5000/api/admin/users/${userId}/demote`, {}, {
-        await axios.patch(`https://lost-and-found-v2-backend-production.up.railway.app/api/admin/users/${userId}/demote`, {}, {
+        await axios.patch(`${API_BASE_URL}/api/admin/users/${userId}/demote`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

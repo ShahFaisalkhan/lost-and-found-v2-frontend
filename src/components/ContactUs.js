@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ const ContactUs = () => {
 
     try {
       // await axios.post('http://localhost:5000/api/contact', formData);
-      await axios.post('https://lost-and-found-v2-backend-production.up.railway.app/api/contact', formData);
+      await axios.post(`${API_BASE_URL}/api/contact`, formData);
       // Show success message
       setStatusType('success');
       setStatus('Thank you! Your message has been sent successfully.');

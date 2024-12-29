@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const Login = ({ onLogin }) => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Login = ({ onLogin }) => {
     try {
       // Send login request to the backend
       // const response = await axios.post('http://localhost:5000/auth/login', formData);
-      const response = await axios.post('https://lost-and-found-v2-backend-production.up.railway.app/auth/login', formData);
+      const response = await axios.post(`${API_BASE_URL}/auth/login`, formData);
       // On success
       alert(response.data.message); // Display success message from backend
       localStorage.setItem('token', response.data.token); // Save the token in local storage

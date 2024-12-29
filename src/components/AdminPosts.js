@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './AdminPosts.css';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const AdminPosts = () => {
   const [posts, setPosts] = useState([]);
@@ -20,7 +21,7 @@ const AdminPosts = () => {
     try {
       const token = localStorage.getItem('token');
       // const { data } = await axios.get('http://localhost:5000/api/admin/posts', {
-        const { data } = await axios.get('https://lost-and-found-v2-backend-production.up.railway.app/api/admin/posts', {
+        const { data } = await axios.get(`${API_BASE_URL}/api/admin/posts`, {
         headers: { Authorization: `Bearer ${token}` },
         params: { ...filters, page },
       });
@@ -45,7 +46,7 @@ const AdminPosts = () => {
     try {
       const token = localStorage.getItem('token');
       // await axios.delete(`http://localhost:5000/api/admin/posts/${postId}`, {
-        await axios.delete(`https://lost-and-found-v2-backend-production.up.railway.app/api/admin/posts/${postId}`, {
+        await axios.delete(`${API_BASE_URL}/api/admin/posts/${postId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -154,7 +155,7 @@ const AdminPosts = () => {
             {post.imageUrl && (
               <img
                 // src={`http://localhost:5000${post.imageUrl}`}
-                src={`https://lost-and-found-v2-backend-production.up.railway.app${post.imageUrl}`}
+                src={`${API_BASE_URL}${post.imageUrl}`}
                 alt={post.title}
                 className="card-img-top admin-post-image"
                 style={{ height: '200px', objectFit: 'cover' }}

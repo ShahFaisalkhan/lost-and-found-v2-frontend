@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const Signup = () => {
 
@@ -14,7 +15,7 @@ const Signup = () => {
 
   try {
    // const response = await axios.post('http://localhost:5000/auth/signup', formData);
-    const response = await axios.post('https://lost-and-found-v2-backend-production.up.railway.app/auth/signup', formData);
+    const response = await axios.post(`${API_BASE_URL}/auth/signup`, formData);
     alert(response.data.message); // Success message from backend
     navigate('/login'); // Navigate to login on success
   } catch (error) {

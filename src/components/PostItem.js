@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const PostItem = () => {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ const PostItem = () => {
       if (image) data.append('image', image);
       // Send POST request with the FormData and Authorization header
       // await axios.post('http://localhost:5000/api/items', data, {
-        await axios.post('https://lost-and-found-v2-backend-production.up.railway.app/api/items', data, {
+        await axios.post(`${API_BASE_URL}/api/items`, data, {
         headers: {
           Authorization: `Bearer ${token}`, // Include token in the request
           'Content-Type': 'multipart/form-data',

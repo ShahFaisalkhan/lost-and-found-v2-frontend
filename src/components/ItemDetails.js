@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './ItemDetails.css'; // Add a CSS file for styling
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const ItemDetails = () => {
   const { id } = useParams();
@@ -12,7 +13,7 @@ const ItemDetails = () => {
   useEffect(() => {
     axios
       // .get(`http://localhost:5000/api/items/${id}`)
-      .get(`https://lost-and-found-v2-backend-production.up.railway.app/api/items/${id}`)
+      .get(`${API_BASE_URL}/api/items/${id}`)
       .then((response) => setItem(response.data))
       .catch((error) => console.error('Error fetching item details:', error));
   }, [id]);
@@ -25,7 +26,8 @@ const ItemDetails = () => {
         {item.imageUrl ? (
           <img
             // src={`http://localhost:5000${item.imageUrl}`}
-            src={`https://lost-and-found-v2-backend-production.up.railway.app${item.imageUrl}`}
+            src={`${API_BASE_URL}${item.imageUrl}`}
+
             alt={item.title}
             className="item-image"
           />

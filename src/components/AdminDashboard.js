@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const AdminDashboard = () => {
   const [metrics, setMetrics] = useState({
@@ -16,7 +17,7 @@ const AdminDashboard = () => {
       try {
         const token = localStorage.getItem('token'); // Admin token
         // const { data } = await axios.get('http://localhost:5000/api/admin/dashboard', {
-          const { data } = await axios.get('https://lost-and-found-v2-backend-production.up.railway.app/api/admin/dashboard', {
+          const { data } = await axios.get(`${API_BASE_URL}/api/admin/dashboard`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         // console.log("Returned data in admin dashboard.js is",data)

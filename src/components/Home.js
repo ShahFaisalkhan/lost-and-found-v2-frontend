@@ -4,13 +4,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Home.css'; // Import the dedicated stylesheet
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const Home = () => {
   const [items, setItems] = useState([]); // Initialize items as an empty array
   const [filters, setFilters] = useState({ category: '', location: '', date: '', searchTerm: '' });
   const [currentPage, setCurrentPage] = useState(1); // Track current page
   const [totalPages, setTotalPages] = useState(1); // Track total pages
- 
+  //console.log("api base url is",API_BASE_URL)
   useEffect(() => {
     const fetchItems = async () => {
       try {
@@ -35,7 +36,7 @@ const Home = () => {
       const queryString = query.join('&'); // Join the parts with "&" and converts it to string
       // console.log("query string in home.js is",queryString)
       // const { data } = await axios.get(`http://localhost:5000/api/items?${queryString}`);
-      const { data } = await axios.get(`https://lost-and-found-v2-backend-production.up.railway.app/api/items?${queryString}`);
+      const { data } = await axios.get(`${API_BASE_URL}/api/items?${queryString}`);
         // const { data } = await axios.get(`http://localhost:5000/api/items?${query}`);
         setItems(data.items || []);
         setTotalPages(data.totalPages || 1);
@@ -134,8 +135,7 @@ const Home = () => {
             {item.imageUrl ? (
     <img
       // src={`http://localhost:5000${item.imageUrl}`}
-      src={`https://lost-and-found-v2-backend-production.up.railway.app${item.imageUrl}`}
-
+      src={`${API_BASE_URL}${item.imageUrl}`}
       alt={item.title}
       className="card-img-top"
       style={{ height: '200px', objectFit: 'cover' }}

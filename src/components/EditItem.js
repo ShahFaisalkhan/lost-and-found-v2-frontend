@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const EditItem = () => {
   const { id } = useParams(); // Get item ID from URL
@@ -24,7 +25,7 @@ const EditItem = () => {
     const fetchItem = async () => {
       try {
         // const { data } = await axios.get(`http://localhost:5000/api/items/${id}`);
-        const { data } = await axios.get(`https://lost-and-found-v2-backend-production.up.railway.app/api/items/${id}`);
+        const { data } = await axios.get(`${API_BASE_URL}/api/items/${id}`);
         setFormData({
           title: data.title || '',
           description: data.description || '',
@@ -66,7 +67,7 @@ const EditItem = () => {
 
       // Submit the form
       // await axios.put(`http://localhost:5000/api/items/${id}`, updateData, {
-        await axios.put(`https://lost-and-found-v2-backend-production.up.railway.app/api/items/${id}`, updateData, {
+        await axios.put(`${API_BASE_URL}/api/items/${id}`, updateData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
@@ -90,7 +91,7 @@ const EditItem = () => {
             <p>Current Image:</p>
             <img
               // src={`http://localhost:5000${existingImageUrl}`}
-              src={`https://lost-and-found-v2-backend-production.up.railway.app${existingImageUrl}`}
+              src={`${API_BASE_URL}${existingImageUrl}`}
               alt="Current Item"
               style={{ width: '300px', height: '200px', objectFit: 'cover' }}
             />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const Profile = () => {
   const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ const Profile = () => {
       try {
         const token = localStorage.getItem('token');
         // const { data } = await axios.get('http://localhost:5000/auth/me', {
-          const { data } = await axios.get('https://lost-and-found-v2-backend-production.up.railway.app/auth/me', {
+          const { data } = await axios.get(`${API_BASE_URL}/auth/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -38,7 +39,7 @@ const Profile = () => {
     try {
       const token = localStorage.getItem('token');
       // const { data } = await axios.put('http://localhost:5000/auth/profile', formData, {
-        const { data } = await axios.put('https://lost-and-found-v2-backend-production.up.railway.app/auth/profile', formData, {
+        const { data } = await axios.put(`${API_BASE_URL}/auth/profile`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
