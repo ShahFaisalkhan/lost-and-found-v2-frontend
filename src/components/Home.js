@@ -11,7 +11,7 @@ const Home = () => {
   const [filters, setFilters] = useState({ category: '', location: '', date: '', searchTerm: '' });
   const [currentPage, setCurrentPage] = useState(1); // Track current page
   const [totalPages, setTotalPages] = useState(1); // Track total pages
-  //console.log("api base url is ",API_BASE_URL)
+  console.log("api base url is ",API_BASE_URL)
   useEffect(() => {
     const fetchItems = async () => {
       try {
